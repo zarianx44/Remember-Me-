@@ -1,54 +1,62 @@
-
-
 import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
-        NavigationStack{
-            NavigationLink(destination: careView()) {
-                HStack {
-                        Image(systemName: "person.circle") // Icon
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 50, height: 50)
-                            .padding(.trailing, 10) // Add spacing between the icon and text
-                        
-                        Text("Caregiver") // Text
-                            .font(.title2)
-                            .bold()
+        NavigationStack {
+            VStack {
+                Spacer()
+
+                Text("Who are you")
+                    .font(.system(size: 40, weight: .bold))
+                    .padding(.bottom, 10)
+
+                LazyVGrid(columns: columns, spacing: 20) {
+                    NavigationLink(destination: careView()) {
+                        VStack {
+                            Image("caregiver")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 130, height: 120)
+
+                            Text("Caregiver")
+                                .font(.system(size: 25, weight: .semibold))
+                                .foregroundColor(.blue)
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue.opacity(0.1))
+                        .cornerRadius(12)
                     }
-                    .padding()
-                    .background(Color.blue.opacity(0.2))
-                    .cornerRadius(10)
-            }
-            
-            NavigationLink(destination: MenuView()) {
-                HStack {
-                        Image(systemName: "person.circle") // Icon
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 24, height: 24)
-                            .padding(.trailing, 10) // Add spacing between the icon and text
-                        
-                        Text("Client") // Text
-                            .font(.title2)
-                            .bold()
+
+                    NavigationLink(destination: MenuView()) {
+                        VStack {
+                            Image("client")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 130, height: 120)
+
+                            Text("Client")
+                                .font(.system(size: 25, weight: .semibold))
+                                .foregroundColor(.blue)
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue.opacity(0.1))
+                        .cornerRadius(12)
                     }
-                    .padding()
-                    .background(Color.blue.opacity(0.2))
-                    .cornerRadius(10)
+                }
+                .padding(.horizontal, 40)
+
+                Spacer()
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.white)
         }
-        
-        
     }
-
-    }
-
-
-
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }

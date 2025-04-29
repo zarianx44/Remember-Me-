@@ -2,10 +2,10 @@ import SwiftUI
 
 struct MenuView: View {
     let buttons: [(label: String, imageName: String, destination: AnyView)] = [
-        ("Button 1", "star", AnyView(Screen1())),
-        ("Button 2", "heart", AnyView(Screen2())),
-        ("Button 3", "person", AnyView(Screen3())),
-        ("Button 4", "gear", AnyView(Screen4()))
+        ("About Me", "user", AnyView(Screen1())),
+        ("Lost", "information", AnyView(Screen2())),
+        ("Task", "task", AnyView(Screen3())),
+        ("Item", "lostitems", AnyView(Screen4()))
     ]
     
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
@@ -24,7 +24,7 @@ struct MenuView: View {
                         
                         NavigationLink(destination: button.destination) {
                             VStack(spacing: 10) {
-                                Image(systemName: button.imageName)
+                                Image(button.imageName)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 60, height: 60)
