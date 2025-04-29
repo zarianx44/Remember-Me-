@@ -1,9 +1,4 @@
-//
-//  ContentView.swift
-//  Remember Me
-//
-//  Created by Zara on 2025-04-28.
-//
+
 
 import SwiftUI
 import SwiftData
@@ -28,7 +23,7 @@ struct ContentView: View {
                     .cornerRadius(10)
             }
             
-            NavigationLink(destination: menuView()) {
+            NavigationLink(destination: MenuView()) {
                 HStack {
                         Image(systemName: "person.circle") // Icon
                             .resizable()

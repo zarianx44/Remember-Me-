@@ -1,70 +1,114 @@
 import SwiftUI
 
-struct menuView: View {
+struct MenuView: View {
+    let buttons: [(label: String, imageName: String, destination: AnyView)] = [
+        ("Button 1", "star", AnyView(Screen1())),
+        ("Button 2", "heart", AnyView(Screen2())),
+        ("Button 3", "person", AnyView(Screen3())),
+        ("Button 4", "gear", AnyView(Screen4()))
+    ]
+    
+    let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    
     var body: some View {
-        NavigationView {
-            VStack(spacing: 30) {
+        NavigationStack {
+            VStack {
                 Text("Menu")
                     .font(.largeTitle)
                     .bold()
-                    .padding(.top, 40)
+                    .padding(.top)
 
-                // 4 Big Buttons with Icons
-                VStack(spacing: 20) {
-                    menuButton(label: "Button 1", imageName: "star", action: {
-                        print("Button 1 tapped")
-                    })
-
-                    menuButton(label: "Button 2", imageName: "heart", action: {
-                        print("Button 2 tapped")
-                    })
-
-                    menuButton(label: "Button 3", imageName: "person", action: {
-                        print("Button 3 tapped")
-                    })
-
-                    menuButton(label: "Button 4", imageName: "gear", action: {
-                        print("Button 4 tapped")
-                    })
+                LazyVGrid(columns: columns, spacing: 20) {
+                    ForEach(0..<buttons.count, id: \.self) { index in
+                        let button = buttons[index]
+                        
+                        NavigationLink(destination: button.destination) {
+                            VStack(spacing: 10) {
+                                Image(systemName: button.imageName)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 60, height: 60)
+                                    .foregroundColor(.blue)
+                                
+                                Text(button.label)
+                                    .font(.headline)
+                                    .foregroundColor(.primary)
+                            }
+                            .frame(maxWidth: .infinity, minHeight: 150)
+                            .background(Color.blue.opacity(0.15))
+                            .cornerRadius(20)
+                        }
+                    }
                 }
-
+                .padding()
+                
                 Spacer()
             }
-            .padding()
         }
     }
 }
 
+
 // MARK: - Reusable Button View
-struct menuButton: View {
+struct MenuButton: View {
     let label: String
     let imageName: String
-    let action: () -> Void
 
     var body: some View {
-        Button(action: action) {
-            HStack {
-                Image(systemName: imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 40, height: 40)
-                    .padding(.leading)
+        HStack {
+            Image(systemName: imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 40, height: 40)
+                .padding(.leading)
 
-                Text(label)
-                    .font(.title2)
-                    .bold()
-                    .padding()
+            Text(label)
+                .font(.title2)
+                .bold()
+                .padding()
 
-                Spacer()
-            }
-            .frame(maxWidth: .infinity, minHeight: 80)
-            .background(Color.blue.opacity(0.2))
-            .cornerRadius(15)
+            Spacer()
         }
-        .buttonStyle(PlainButtonStyle())
+        .frame(maxWidth: .infinity, minHeight: 80)
+        .background(Color.blue.opacity(0.2))
+        .cornerRadius(15)
     }
 }
 
 #Preview {
-    menuView()
+    MenuView()
+}
+// ... all your MenuView and MenuButton code above
+
+#Preview {
+    MenuView()
+}
+
+// Add this after the preview:
+struct Screen1: View {
+    var body: some View {
+        Text("Screen 1")
+            .font(.largeTitle)
+    }
+}
+
+struct Screen2: View {
+    var body: some View {
+        Text("Screen 2")
+            .font(.largeTitle)
+    }
+}
+
+struct Screen3: View {
+    var body: some View {
+        Text("Screen 3")
+            .font(.largeTitle)
+    }
+}
+
+struct Screen4: View {
+    var body: some View {
+        Text("Screen 4")
+            .font(.largeTitle)
+    }
 }
