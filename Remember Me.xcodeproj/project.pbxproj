@@ -400,6 +400,9 @@
 				DEVELOPMENT_TEAM = JCU86JR832;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to keep your caregiver informed.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Show the user's location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location is used for safety tracking.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +431,9 @@
 				DEVELOPMENT_TEAM = JCU86JR832;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to keep your caregiver informed.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Show the user's location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location is used for safety tracking.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

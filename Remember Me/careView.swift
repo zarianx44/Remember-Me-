@@ -6,12 +6,17 @@
 //
 
 import Foundation
-
+import MapKit
 import SwiftUI
+import AVFoundation
 
 struct careView: View {
     var body: some View {
+        Map()
+            .mapStyle(.hybrid)
+        
         NavigationView {
+            
            
         }
     }
