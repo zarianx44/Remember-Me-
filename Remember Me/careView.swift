@@ -1,6 +1,15 @@
+//
+//  careView.swift
+//  Remember Me
+//
+//  Created by Zara on 2025-04-29.
+//
+
+import Foundation
+
 import SwiftUI
 
-struct menuView: View {
+struct careView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 30) {
@@ -36,34 +45,7 @@ struct menuView: View {
 }
 
 // MARK: - Reusable Button View
-struct menuButton: View {
-    let label: String
-    let imageName: String
-    let action: () -> Void
 
-    var body: some View {
-        Button(action: action) {
-            HStack {
-                Image(systemName: imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 40, height: 40)
-                    .padding(.leading)
-
-                Text(label)
-                    .font(.title2)
-                    .bold()
-                    .padding()
-
-                Spacer()
-            }
-            .frame(maxWidth: .infinity, minHeight: 80)
-            .background(Color.blue.opacity(0.2))
-            .cornerRadius(15)
-        }
-        .buttonStyle(PlainButtonStyle())
-    }
-}
 
 #Preview {
     menuView()
