@@ -5,7 +5,7 @@ import Firebase
 @main
 struct Remember_MeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+
 
     // Shared ModelContainer
     var sharedModelContainer: ModelContainer = {
