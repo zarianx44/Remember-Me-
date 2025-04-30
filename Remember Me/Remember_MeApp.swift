@@ -4,11 +4,8 @@ import Firebase
 
 @main
 struct Remember_MeApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
-    // Initialize Firebase
-    init() {
-        FirebaseApp.configure()
-    }
 
     // Shared ModelContainer
     var sharedModelContainer: ModelContainer = {

@@ -112,3 +112,34 @@ struct Screen4: View {
             .font(.largeTitle)
     }
 }
+
+//zara's stuff
+import Foundation
+import CoreLocation
+import Firebase
+
+class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+    private let manager = CLLocationManager()
+    
+    override init() {
+        super.init()
+        manager.delegate = self
+        manager.requestAlwaysAuthorization()
+        manager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+        // Send to Firebase (replace "patient_id" as needed)
+        let db = Firestore.firestore()
+        db.collection("locations").document("patient_id").setData([
+            "lat": latitude,
+            "lon": longitude,
+            "timestamp": Timestamp(date: Date())
+        ])
+    }
+}
+

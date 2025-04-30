@@ -12,7 +12,7 @@ struct ContentView: View {
             VStack {
                 Spacer()
 
-                Text("Who are you")
+                Text("Who are you?")
                     .font(.system(size: 40, weight: .bold))
                     .padding(.bottom, 10)
 
