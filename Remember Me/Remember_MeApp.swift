@@ -1,19 +1,18 @@
-//
-//  Remember_MeApp.swift
-//  Remember Me
-//
-//  Created by Zara on 2025-04-28.
-//brother
-
 import SwiftUI
 import SwiftData
+import Firebase
 
 @main
 struct Remember_MeApp: App {
+    
+    // Initialize Firebase
+    init() {
+        FirebaseApp.configure()
+    }
+
+    // Shared ModelContainer
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
+        let schema = Schema([Item.self])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
         do {
@@ -26,7 +25,7 @@ struct Remember_MeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(sharedModelContainer)  // Inject model container
         }
-        .modelContainer(sharedModelContainer)
     }
 }
