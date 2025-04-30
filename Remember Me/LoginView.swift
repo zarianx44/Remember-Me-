@@ -10,15 +10,16 @@ import SwiftUI
 
 struct LoginView: View{
     var body: some View{
-    ZStack{
-        Color.black
+        ZStack{
+            Color.black
+            RoundedRectangle(cornerRadius:30, style: .continuous)
+                .foregroundStyle(.linearGradient(colors: [.pink, .red], startPoint: .topLeading , endPoint: .bottomTrailing))
     }
         ignoresSafeArea()
     }
 }
 
-struct LoginView_Previews: PreviewProvider{
-    static var previews: some View{
-        LoginView()
-    }
+
+#Preview {
+    LoginView()
 }

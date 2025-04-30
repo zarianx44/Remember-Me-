@@ -6,7 +6,6 @@ import Firebase
 struct Remember_MeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
-
     // Shared ModelContainer
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([Item.self])
