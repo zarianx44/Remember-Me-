@@ -17,7 +17,7 @@ struct ContentView: View {
                     .padding(.bottom, 10)
 
                 LazyVGrid(columns: columns, spacing: 20) {
-                    NavigationLink(destination: careView()) {
+                    NavigationLink(destination: LoginView()) {
                         VStack {
                             Image("caregiver")
                                 .resizable()
@@ -68,5 +68,5 @@ struct ContentView_Previews: PreviewProvider{
 }
 
 #Preview {
-    LoginView()
+    ContentView()
 }
