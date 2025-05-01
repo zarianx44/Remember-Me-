@@ -10,7 +10,6 @@ import SwiftUI
 
 import Foundation
 import CoreLocation
-import Firebase
 
 
 struct careView: View {
